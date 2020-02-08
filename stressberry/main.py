@@ -1,3 +1,8 @@
+# coding=utf-8
+# -*- coding: utf8 -*-
+import sys
+print(sys.getdefaultencoding())
+
 import subprocess
 import time as tme
 from os import cpu_count

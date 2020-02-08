@@ -4,9 +4,10 @@ import sys
 import threading
 import time
 
-import matplotlib.pyplot as plt
-import numpy
-import yaml
+#import matplotlib.pyplot as plt
+#import numpy
+#import yaml
+import json
 
 from .__about__ import __copyright__, __version__
 from .main import (
@@ -160,18 +161,27 @@ def run(argv=None):
     time0 = times[0]
     times = [tm - time0 for tm in times]
 
+    version_comment = "# This file was created by stressberry v{} on {}\n".format(
+            __version__, datetime.datetime.now()
+        )
+    """
+    # fixme use version_comment
     args.outfile.write(
         "# This file was created by stressberry v{} on {}\n".format(
             __version__, datetime.datetime.now()
         )
     )
     yaml.dump(
+    """
+    #args.outfile.write(
+    json.dump(
         {
             "name": args.name,
             "time": times,
             "temperature": temps,
             "cpu frequency": freqs,
             "ambient": ambient,
+            "version_comment": version_comment,
         },
         args.outfile,
     )

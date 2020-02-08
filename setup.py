@@ -16,7 +16,7 @@ setup(
     url="https://github.com/nschloe/stressberry",
     author=about["__author__"],
     author_email=about["__email__"],
-    install_requires=["matplotlib", "pyyaml"],
+    #install_requires=["matplotlib", "pyyaml"],
     description="Stress tests for the Raspberry Pi",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
